@@ -32,3 +32,9 @@ deploy your contract:
 ```sh
 npx hardhat run scripts/deploy.js --network localhost
 ```
+
+Tests are runned with:
+
+```sh
+npx hardhat test test/SubNav.js
+```
