@@ -4,7 +4,3 @@ node_modules
 # Hardhat files
 cache
 artifacts
-
-# Local test network
-.vagrant
-ansible_collections
