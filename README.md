@@ -26,11 +26,16 @@ Once installed, let's run Hardhat's testing network:
 npx hardhat node
 ```
 
-Then, on a new terminal, go to the repository's root folder and run this to
-deploy your contract:
+Then, on a new terminal, go to the repository's root folder and run this to deploy the `SubNav` contract:
 
 ```sh
-npx hardhat run scripts/deploy.js --network localhost
+npx hardhat run scripts/deploy-subnav.js --network localhost
+```
+
+You can also run this scripts to fill mock data into the contract:
+
+```sh
+npx hardhat run scripts/fill-subnav.js --network localhost
 ```
 
 Tests are runned with:
