@@ -37,7 +37,31 @@ Tests are run with:
 npx hardhat test test/SubNav.js
 ```
 
-## Local test network Ansible >= 2.11
+## Hardhat configuration
+
+Hardhat is configured to interact with a special network called `vagrant`:
+
+```
+vagrant: {
+    url: "http://192.168.10.11:9650/ext/bc/subnav/rpc",
+    chainId: 13213,
+    accounts: [PRIVATE_KEY]
+}
+```
+
+This network is a local Vagrant-based Avalanche network with a Subnet / Blockchain. The instructions to deploy this environment are described in the next section.
+
+## Local test network with Vagrant, Ansible and AvalancheGo
+
+The steps bellow leverages [Ansible Avalanche Collection](https://github.com/Nuttymoon/ansible-avalanche-collection) to deploy a local virtual machines based Avalanche environment.
+
+The main steps are:
+- Create 5 virtual machines with [Vagrant](https://www.vagrantup.com/)
+- Bootstrap a local Avalanche cluster with [Avalanche Go](https://github.com/ava-labs/avalanchego)
+- Create a subnet and add it to the `whitelisted-subnets` of each node.
+- Create a [subnet-evm](https://github.com/ava-labs/subnet-evm) blockchain in the subnet.
+
+### With Ansible >= 2.11
 
 ```sh
 # Install Ansible collection
@@ -66,10 +90,12 @@ ansible-playbook nuttymoon.avalanche.bootstrap_local_network -i inventories/loca
 ansible-playbook nuttymoon.avalanche.create_local_blockchains -i inventories/local -e subnet_id=2omKR2BxV5AyuEuQUqEwGBkPdHBGiZFoZPdNSpJ6JbhguGPPVz
 ```
 
-## Local test network Ansible >= 2.11
+### With Ansible <= 2.10
+
+Bellow are the same commands if your Ansible version is <= 2.10.
 
 ```sh
-# Ansible <= 2.10
+# Install Ansible collection
 mkdir -p ansible_collections/nuttymoon
 git clone https://github.com/Nuttymoon/ansible-avalanche-collection.git ansible_collections/nuttymoon/avalanche
 
