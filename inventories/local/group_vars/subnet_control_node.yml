@@ -8,9 +8,9 @@ subnet_validators_weight: 1
 
 create_blockchains:
   - blockchain_vm: subnetevm
-    blockchain_name: Subnet EVM
+    blockchain_name: SubNav Chain
     blockchain_aliases:
-      - subnetevm
+      - subnav
     blockchain_genesis_params:
       genesisData:
         config:
