@@ -1,6 +1,10 @@
 node_modules
 .idea
 
-#Hardhat files
+# Hardhat files
 cache
 artifacts
+
+# Local test network
+.vagrant
+ansible_collections
