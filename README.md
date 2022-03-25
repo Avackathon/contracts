@@ -31,7 +31,7 @@ You can also run this scripts to fill mock data into the contract:
 npx hardhat run scripts/fill-subnav.js --network localhost
 ```
 
-Tests are runned with:
+Tests are run with:
 
 ```sh
 npx hardhat test test/SubNav.js
