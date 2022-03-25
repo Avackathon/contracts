@@ -1,13 +1,6 @@
-# Hardhat Hackathon Boilerplate
+# SubNav Backend
 
-This repository contains a sample project that you can use as the starting point
-for your Ethereum project. It's also a great fit for learning the basics of
-smart contract development.
-
-This project is intended to be used with the
-[Hardhat Beginners Tutorial](https://hardhat.org/tutorial), but you should be
-able to follow it by yourself by reading the README and exploring its
-`contracts`, `tests`, `scripts` and `frontend` directories.
+This repository contains the Hardhat environment for the `SubNav` project which is a Subnet Navigator.
 
 ## Quick start
 
@@ -17,7 +10,7 @@ dependencies:
 ```sh
 git clone https://github.com/Avackathon/backend.git
 cd backend
-npm install
+yarn
 ```
 
 Once installed, let's run Hardhat's testing network:
