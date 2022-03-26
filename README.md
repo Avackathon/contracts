@@ -49,4 +49,4 @@ vagrant: {
 }
 ```
 
-This network is a local Vagrant-based Avalanche network with a Subnet / Blockchain. The instructions to deploy this environment are described in the next section.
+This network is a local Vagrant-based Avalanche network with a Subnet / Blockchain. The instructions to deploy this environment are described in the [infra repository](https://github.com/Avackathon/infra).
