@@ -23,5 +23,10 @@ module.exports = {
       chainId: 13213,
       accounts: PRIVATE_KEYS,
     },
+    subnav: {
+      url: "https://fuji.subnav.network/ext/bc/subnav/rpc",
+      chainId: 13213,
+      accounts: PRIVATE_KEYS,
+    },
   },
 };
