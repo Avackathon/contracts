@@ -31,16 +31,21 @@ async function main() {
   const SubNav = await ethers.getContractFactory("SubNav");
   const subNavInstance = new ethers.Contract(CONTRACT_ADDRESS, SubNav.interface, deployer);
 
-  console.log("Connected to SubNav at address:", subNavInstance.address);
+  [owner, alice, bob, ...addrs] = await ethers.getSigners();
 
   // Register two users
-  await subNavInstance.registerUser(userAMail, userATwitter);
-  await subNavInstance.registerUser(userBMail, userBTwitter);
+  await subNavInstance.connect(alice).registerUser(userAMail, userATwitter);
+  await subNavInstance.connect(bob).registerUser(userBMail, userBTwitter);
   console.log("Registered mock Users");
 
+  // Request two subnets ownerships
+  await subNavInstance.connect(alice).requestSubnetOwnership(subnetAId);
+  await subNavInstance.connect(bob).requestSubnetOwnership(subnetBId);
+  console.log("Created and validated subnets ownership requests");
+
   // Register two subnets
-  await subNavInstance.registerSubnet(subnetAId, subnetAName, subnetADescription, subnetAOwner);
-  await subNavInstance.registerSubnet(subnetAId, subnetAName, subnetADescription, subnetAOwner);
+  await subNavInstance.connect(alice).registerSubnet(subnetAId, subnetAName, subnetADescription);
+  await subNavInstance.connect(bob).registerSubnet(subnetBId, subnetBName, subnetBDescription);
   console.log("Registered mock Subnets");
 }
 
