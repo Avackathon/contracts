@@ -3,7 +3,7 @@ require("@nomiclabs/hardhat-waffle");
 const PRIVATE_KEY = "56289e99c94b6912bfc12adc093c9b51124f0dc54ac7a766b2bc5ccf558d8027";
 
 module.exports = {
-  solidity: "0.7.3",
+  solidity: "0.7.5",
   networks: {
     hardhat: {
       chainId: 31337
