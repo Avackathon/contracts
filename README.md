@@ -1,6 +1,6 @@
-# SubNav Backend
+# SubNav Contracts
 
-This repository contains the Hardhat environment for the `SubNav` project which is a Subnet Navigator.
+This repository contains the Solidity contracts and Hardhat environment for the [SubNav](https://github.com/Avackathon/subnav) project.
 
 ## Quick start
 
@@ -39,7 +39,7 @@ npx hardhat test test/SubNav.js
 
 ## Hardhat configuration
 
-Hardhat is configured to interact with a special network called `vagrant`:
+Hardhat is configured to interact with special networks.
 
 ```
 vagrant: {
@@ -49,4 +49,14 @@ vagrant: {
 }
 ```
 
-This network is a local Vagrant-based Avalanche network with a Subnet / Blockchain. The instructions to deploy this environment are described in the [infra repository](https://github.com/Avackathon/infra).
+The `vagrant` network is a local Vagrant-based Avalanche network with a Subnet / Blockchain. The instructions to deploy this environment are described in the [infra](https://github.com/Avackathon/infra#local-test-network-with-vagrant-ansible-and-avalanchego) repository.
+
+```
+subnav: {
+    url: "https://fuji.subnav.network/ext/bc/subnav/rpc",
+    chainId: 13213,
+    accounts: PRIVATE_KEYS,
+},
+```
+
+The `subnav` network is the SubNav project subnet living on the Fuji network which is hosting the `SubNav.sol` solidity contract in a [subnet-evm](https://github.com/ava-labs/subnet-evm) instance. The Fuji node validator, SubNav subnet and EVM blockchain were all deployed using the [infra](https://github.com/Avackathon/infra#fuji-validator) repository.
