@@ -62,20 +62,35 @@ describe("SubNav contract", function () {
   });
 
   describe("Subnet", function () {
+    it("Should emit a subnet ownership request", async function () {
+      await expect(SubNav.connect(alice).requestSubnetOwnership(subnetAId))
+        .to.emit(SubNav, "SubnetOwnershipRequest")
+        .withArgs(alice.address, subnetAId, "Pending");
+    });
+
     it("Should register a subnet", async function () {
-      await SubNav.registerSubnet(subnetAId, subnetAName, subnetADescription, subnetAOwner);
+      await SubNav.connect(alice).requestSubnetOwnership(subnetAId);
+      await SubNav.connect(alice).registerSubnet(subnetAId, subnetAName, subnetADescription);
       registeredSubnet = await SubNav.subnets(subnetAId);
 
       expect(registeredSubnet.name).to.equal(subnetAName);
     });
 
+    it("Should fail to register a subnet", async function () {
+      await expect(
+        SubNav.connect(alice)
+        .registerSubnet(subnetAId, subnetAName, subnetADescription)
+      ).to.be.revertedWith("Sender is not the subnet owner")
+    });
+
     it("Should return a subnet object based on its ID", async function () {
-      await SubNav.registerSubnet(subnetAId, subnetAName, subnetADescription, subnetAOwner);
+      await SubNav.connect(alice).requestSubnetOwnership(subnetAId);
+      await SubNav.connect(alice).registerSubnet(subnetAId, subnetAName, subnetADescription);
       registeredSubnet = await SubNav.subnets(subnetAId);
 
       expect(registeredSubnet.name).to.equal(subnetAName);
       expect(registeredSubnet.description).to.equal(subnetADescription);
-      expect(registeredSubnet.owner).to.equal(subnetAOwner);
+      expect(registeredSubnet.owner).to.equal(alice.address);
     });
   });
 
