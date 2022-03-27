@@ -59,4 +59,4 @@ subnav: {
 },
 ```
 
-The `subnav` network is the [SubNav](https://github.com/Avackathon/subnav) project subnet living on the Fuji network which is hosting the `SubNav.sol` solidity contract in a [subnet-evm](https://github.com/ava-labs/subnet-evm) instance. The Fuji node validator, SubNav subnet and EVM blockchain were all deployed using the [infra](https://github.com/Avackathon/infra#fuji-validator) repository.
+The `subnav` network is the [SubNav](https://github.com/Avackathon/subnav) project subnet living on the Fuji network which is hosting the `SubNav.sol` solidity contract in a [subnet-evm](https://github.com/ava-labs/subnet-evm) instance. The Fuji node validator, SubNav subnet and EVM blockchain were all deployed using the [infra](https://github.com/Avackathon/infra#fuji-validator) repository. The smart contract was deployed using Hardhat in this repository.
